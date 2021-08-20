@@ -103,7 +103,7 @@ router.delete("/borrar/:id", (req, res) => {
   }
 });
 
-router.post("/guardarForm", uploadFile.single("thumbnail"), (req, res) => {
+router.post("/guardarform", uploadFile.single("thumbnail"), (req, res) => {
   let title = req.body.title;
   let price = parseInt(req.body.price);
   let thumbnail = req.file.path;

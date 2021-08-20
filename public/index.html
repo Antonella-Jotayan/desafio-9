@@ -9,25 +9,19 @@
   <body>
     <div class="container">
       <form
-        action="localhost:8080/api/productos/guardarForm"
+        action="/api/productos/guardarform"
         method="post"
         enctype="multipart/form-data"
       >
-        <div>
-          <label for="title">Título</label>
-          <input type="text" name="title" />
-        </div>
-        <div>
-          <label for="price">Precio</label>
-          <input type="text" name="price" />
-        </div>
-        <div>
-          <label for="thumbnail">Thumbnail</label>
-          <input type="text" name="thumbnail" />
-        </div>
-        <div>
-          <input type="submit" />
-        </div>
+        <label for="title">Título</label>
+        <input type="text" name="title" />
+
+        <label for="price">Precio</label>
+        <input type="text" name="price" />
+
+        <label for="thumbnail">Thumbnail</label>
+        <input type="text" name="thumbnail" />
+        <button type="submit" value="guardar">Submit</button>
       </form>
     </div>
   </body>
