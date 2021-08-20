@@ -5,18 +5,17 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
 let multer = require("multer");
-let upload = multer();
 
 let storage = multer.diskStorage({
   destination: function (req, file, callback) {
-    callback(null, file.originalname);
+    callback(null, "uploads");
   },
   filename: function (req, file, callback) {
-    callback(null, file.originalname);
+    callback(null, `${file.fieldname}-${Date.now()}`);
   },
 });
 
-let uploadFile = multer({ storage });
+let upload = multer({ storage });
 
 let productos = [];
 
@@ -103,7 +102,7 @@ router.delete("/borrar/:id", (req, res) => {
   }
 });
 
-router.post("/guardarform", uploadFile.single("thumbnail"), (req, res) => {
+router.post("/guardarform", upload.single("thumbnail"), (req, res, next) => {
   let title = req.body.title;
   let price = parseInt(req.body.price);
   let thumbnail = req.file.path;
