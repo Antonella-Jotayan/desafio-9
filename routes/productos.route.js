@@ -73,13 +73,13 @@ router.post("/guardar", (req, res) => {
   }
 });
 
-router.put("/actualizar:id", (req, res) => {
+router.put("/actualizar/:id", (req, res) => {
   try {
     let id = parseInt(req.params.id);
     productos[id - 1] = {
-      id: parseInt(id),
+      id,
       title: req.body.title,
-      price: parseInt(req.body.thumbnail),
+      price: parseInt(req.body.price),
     };
     res.json(productos[id - 1]);
   } catch (error) {
